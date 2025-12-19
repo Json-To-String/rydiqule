@@ -64,11 +64,6 @@ docs = [
     "sphinxext-opengraph",
     "sphinx-inline-tabs",
 ]
-tests = [
-    "pytest",
-    "coverage",
-    "pytest-cov",
-]
 mypy = [
     "mypy",
     "numpy>=1.21",
@@ -77,7 +72,13 @@ mypy = [
     "types-psutil",
 ]
 linter = ["ruff"]
-dev = ["setuptools-scm"]
+dev = [
+    "setuptools-scm",
+    "ipykernel",
+    "pytest",
+    "coverage",
+    "pytest-cov",
+    ]
 
 [tool.uv.dependency-groups.docs]
 requires-python = ">=3.11"

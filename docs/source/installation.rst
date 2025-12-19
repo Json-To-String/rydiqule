@@ -48,6 +48,29 @@ Regular Installation
 
   This command will use pip to install all necessary dependencies.
 
+.. tab:: uv
+
+  Assuming you have not already created a separate environment for RydIQule (recommended), 
+  run the following in the root directory to create a new environment:
+
+  .. code-block:: shell
+
+    $ uv venv -p 3.12
+    $ source .venv/bin/activate
+    (rydiqule) $ uv sync --no-dev # uv enables dev by default
+
+  If instead you have a separate project you want to add rydiqule as a dependency to:
+
+  .. code-block:: shell
+
+    (myproject) $ uv add rydiqule
+
+  Or simpy install into an activated environment via:
+
+  .. code-block:: shell
+
+    (myproject) $ uv pip install rydiqule
+
 Editable Installation
 ---------------------
 
@@ -72,7 +95,15 @@ this must be done using pip.
 
   .. code-block:: shell
 
-    pip install -e .
+    $ pip install -e .
+
+.. tab:: uv
+ 
+  Run the following from the root directory of the cloned repository:
+
+  .. code-block:: shell
+
+    $ uv sync
 
 Note that editable installations should have `git` available if you want dynamic versioning (via `setuptools-scm`),
 either by a system-wide installation or via conda in the virtual environment (`conda install git`).
@@ -186,5 +217,13 @@ Both are available via `pip`, `conda`, or our anaconda channel.
   .. code-block:: shell
 
     pip install rydiqule[backends]
+
+.. tab:: uv
+
+  Backends can be installed automatically via the optional extras specification for the `uv sync` command.
+
+  .. code-block:: shell
+
+    uv sync --extra backends
 
 .. |pythons| image:: https://img.shields.io/pypi/pyversions/rydiqule.svg
